@@ -48,7 +48,7 @@ public class Main {
                 System.out.println("3. Salir");
                 System.out.print("Selecciona una opción: ");
                 int option = scanner.nextInt();
-                scanner.nextLine(); // Consumir el salto de línea
+                scanner.nextLine();
 
                 switch (option) {
                     case 1:
@@ -68,7 +68,7 @@ public class Main {
                     case 2:
                         System.out.print("Introduce el índice para mostrar datos: ");
                         int searchIndex = scanner.nextInt();
-                        scanner.nextLine(); // Consumir el salto de línea
+                        scanner.nextLine();
 
                         System.out.println("Datos en el índice " + searchIndex + " de la Tabla Hash 1:");
                         List<String> data1 = hashTable1.getDataAtIndex(searchIndex);
