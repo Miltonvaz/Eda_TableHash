@@ -45,16 +45,16 @@ public class HashTable {
         return data;
     }
 
-    public int searchAndGetIndex(String key) {
+    public String searchValueByKey(String key, int functionNumber) {
         String searchKey = key + ":";
         for (int i = 0; i < capacity; i++) {
             for (String entry : table[i]) {
                 if (entry.startsWith(searchKey)) {
-                    return i;
+                    return "Índice: " + i + ", Valor: " + entry.substring(searchKey.length());
                 }
             }
         }
-        return -1;
+        return null;
     }
 
     private int hashFunction(String key, int functionNumber) {

@@ -55,11 +55,16 @@ public class Main {
                         System.out.print("Introduce la Clave a Buscar: ");
                         String searchKey = scanner.nextLine().trim();
 
-                        int foundIndex1 = hashTable1.searchAndGetIndex(searchKey);
-                        int foundIndex2 = hashTable2.searchAndGetIndex(searchKey);
+                        String foundValue1 = hashTable1.searchValueByKey(searchKey, 1);
+                        String foundValue2 = hashTable2.searchValueByKey(searchKey, 2);
 
-                        if (foundIndex1 != -1 || foundIndex2 != -1) {
-                            System.out.println("Clave '" + searchKey + "' encontrada en el índice: " + foundIndex1 + " " + foundIndex2);
+                        if (foundValue1 != null || foundValue2 != null) {
+                            if (foundValue1 != null) {
+                                System.out.println("Clave '" + searchKey + "' encontrada en Tabla Hash 1. " + foundValue1);
+                            }
+                            if (foundValue2 != null) {
+                                System.out.println("Clave '" + searchKey + "' encontrada en Tabla Hash 2. " + foundValue2);
+                            }
                         } else {
                             System.out.println("Clave '" + searchKey + "' no encontrada.");
                         }
