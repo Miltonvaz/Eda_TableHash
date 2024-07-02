@@ -40,33 +40,57 @@ public class Main {
             }
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Introduce la Clave a Buscar: ");
-            String searchKey = scanner.nextLine().trim();
+            boolean exit = false;
+            while (!exit) {
+                System.out.println("\nMenu:");
+                System.out.println("1. Buscar por clave");
+                System.out.println("2. Mostrar datos por índice");
+                System.out.println("3. Salir");
+                System.out.print("Selecciona una opción: ");
+                int option = scanner.nextInt();
+                scanner.nextLine(); // Consumir el salto de línea
 
-            int foundIndex1 = hashTable1.searchAndGetIndex(searchKey);
-            int foundIndex2 = hashTable2.searchAndGetIndex(searchKey);
+                switch (option) {
+                    case 1:
+                        System.out.print("Introduce la Clave a Buscar: ");
+                        String searchKey = scanner.nextLine().trim();
 
-            if (foundIndex1 != -1 || foundIndex2 != -1) {
-                System.out.println("Clave '" + searchKey + "' encontrada en el índice: " + foundIndex1 + " " + foundIndex2);
-            } else {
-                System.out.println("Clave '" + searchKey + "' no encontrada.");
-            }
+                        int foundIndex1 = hashTable1.searchAndGetIndex(searchKey);
+                        int foundIndex2 = hashTable2.searchAndGetIndex(searchKey);
 
+                        if (foundIndex1 != -1 || foundIndex2 != -1) {
+                            System.out.println("Clave '" + searchKey + "' encontrada en el índice: " + foundIndex1 + " " + foundIndex2);
+                        } else {
+                            System.out.println("Clave '" + searchKey + "' no encontrada.");
+                        }
+                        break;
 
-            System.out.print("Introduce el índice para mostrar datos: ");
-            int searchIndex = scanner.nextInt();
+                    case 2:
+                        System.out.print("Introduce el índice para mostrar datos: ");
+                        int searchIndex = scanner.nextInt();
+                        scanner.nextLine(); // Consumir el salto de línea
 
-            long startTimeDisplay1 = System.nanoTime();
-            System.out.println("Datos en el índice " + searchIndex + " de la Tabla Hash 1:");
-            List<String> data1 = hashTable1.getDataAtIndex(searchIndex);
-            for (String data : data1) {
-                System.out.println(data);
-            }
+                        System.out.println("Datos en el índice " + searchIndex + " de la Tabla Hash 1:");
+                        List<String> data1 = hashTable1.getDataAtIndex(searchIndex);
+                        for (String data : data1) {
+                            System.out.println(data);
+                        }
 
-            System.out.println("Datos en el índice " + searchIndex + " de la Tabla Hash 2:");
-            List<String> data2 = hashTable2.getDataAtIndex(searchIndex);
-            for (String data : data2) {
-                System.out.println(data);
+                        System.out.println("Datos en el índice " + searchIndex + " de la Tabla Hash 2:");
+                        List<String> data2 = hashTable2.getDataAtIndex(searchIndex);
+                        for (String data : data2) {
+                            System.out.println(data);
+                        }
+                        break;
+
+                    case 3:
+                        exit = true;
+                        break;
+
+                    default:
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                        break;
+                }
             }
             scanner.close();
 
